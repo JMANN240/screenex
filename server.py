@@ -1,5 +1,4 @@
 import socket
-import pyautogui
 from pynput.mouse import Controller as MouseController
 from pynput.keyboard import Controller as KeyboardController
 from pynput.keyboard import Key
@@ -7,14 +6,11 @@ from pynput.mouse import Button
 import json
 from screeninfo import get_monitors
 
-screensize = pyautogui.size()
+from config import *
 mouseController = MouseController()
 keyboardController = KeyboardController()
 
 name = "JT-Laptop"
-
-server = ('10.42.0.1', 4000)
-client = ('10.42.0.226', 4001)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind(server)
