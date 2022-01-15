@@ -2,7 +2,6 @@ import socket
 import pyautogui
 from pynput.mouse import Controller as MouseController
 from pynput.keyboard import Controller as KeyboardController
-from pynput import KeyCode
 import json
 
 screensize = pyautogui.size()
