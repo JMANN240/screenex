@@ -1,6 +1,6 @@
 # Screenex
 
-Put your old laptop to use! Screenex allows you to seamlessly control other computers as if they were connected to your own! 
+Put your old laptop to use! Screenex allows you to seamlessly control other computers as if they were connected to your own! Your mouse is no longer bound by your monitors, but can roam freely on an infinite 2D plane. "Palce" screens on that plane to control them remotely
 
 Configure the computers' IP addresses in `config.py` and configure the screen you want to control in `screens.json`. The dependencies are in `requirements.txt`. Run `server.py` on your computer you want to control and run `client.py` on your primary computer.
 
