@@ -2,6 +2,7 @@ import socket
 import pyautogui
 from pynput.mouse import Controller as MouseController
 from pynput.keyboard import Controller as KeyboardController
+from pynput.keyboard import Key
 import json
 
 screensize = pyautogui.size()
@@ -25,8 +26,16 @@ while True:
         mouseController.position = (x, screensize[1]+y)
     elif data["message"] == "press":
         keycode = data["keycode"]
+        for k in Key:
+            if str(k) == keycode:
+                keyboardController.press(k)
+                break
     elif data["message"] == "unpress":
         keycode = data["keycode"]
+        for k in Key:
+            if str(k) == keycode:
+                keyboardController.press(k)
+                break
         # keyboardController.tap(KeyCode.from_vk(keycode))
     elif data["message"] == "quit":
         break
