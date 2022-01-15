@@ -22,7 +22,7 @@ while True:
     if data["message"] == "mouse":
         x = data["coords"]["x"]
         y = data["coords"]["y"]
-        mouseController.position = (x, screensize+y)
+        mouseController.position = (x, screensize[1]+y)
     elif data["message"] == "press":
         keycode = data["keycode"]
     elif data["message"] == "unpress":
