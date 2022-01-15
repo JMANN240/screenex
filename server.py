@@ -16,7 +16,7 @@ while True:
     data = data.decode('utf-8')
     if data == "quit":
         break
-    coords = (int(coord) for coord in data.split(" "))
+    coords = (int(coord) for coord in list(data.split(" ")))
     x = coords[0]
     y = coords[1]
     mouseController.position = (x, screensize+y)
