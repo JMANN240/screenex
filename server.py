@@ -27,6 +27,7 @@ while True:
     elif data["message"] == "press":
         keycode = data["keycode"]
         for k in Key:
+            print(str(k))
             if str(k) == keycode:
                 keyboardController.press(k)
                 break
