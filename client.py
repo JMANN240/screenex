@@ -13,4 +13,4 @@ def handle_mouse(x, y):
     print(x, y)
     # mouseController.position = (x, screensize+y)
 
-sio.connect('http://10.244.34.14:8070')
+sio.connect('http://10.42.0.226:8070')
