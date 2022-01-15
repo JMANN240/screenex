@@ -5,10 +5,13 @@ from pynput.keyboard import Controller as KeyboardController
 from pynput.keyboard import Key
 from pynput.mouse import Button
 import json
+from screeninfo import get_monitors
 
 screensize = pyautogui.size()
 mouseController = MouseController()
 keyboardController = KeyboardController()
+
+name = "JT-Laptop"
 
 server = ('10.42.0.1', 4000)
 client = ('10.42.0.226', 4001)
@@ -21,10 +24,24 @@ while True:
     data = data.decode('utf-8')
     data = json.loads(data)
     print(json.dumps(data, indent=4))
-    if data["message"] == "mouse":
+    if data["target"] != name:
+        continue
+    if data["message"] == "info":
+        for m in get_monitors():
+            if m.is_primary:
+                s.sendto(json.dumps({
+                    "x": m.x,
+                    "y": m.y,
+                    "width": m.width,
+                    "height": m.height,
+                    "width_mm": m.width_mm,
+                    "height_mm": m.height_mm
+                }).encode("utf-8"), client)
+                break
+    elif data["message"] == "mouse":
         x = data["coords"]["x"]
         y = data["coords"]["y"]
-        mouseController.position = (x, screensize[1]+y)
+        mouseController.position = (x, y)
     elif data["message"] == "press":
         keycode = data["keycode"]
         for k in Key:
